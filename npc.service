@@ -1,0 +1,14 @@
+[Unit]
+Description=npc service
+After=network.target network-online.target syslog.target
+Wants=network.target network-online.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5
+#启动服务的命令（此处写你的frps的实际安装目录）
+ExecStart=/root/npc/npc -server=47.102.214.33:20001 -vkey=cnlkk342yehs5r4u -type=tcp
+
+[Install]
+WantedBy=multi-user.target
